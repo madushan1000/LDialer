@@ -1,0 +1,19 @@
+def subProjectDirs = fileTree('Lineage_Dialer'){
+    include '**/AndroidManifest.xml'
+    //exclude 'AndroidManifest.xml'
+}.collect{ it.getParentFile() }
+
+subProjectDirs.each {
+    defineProject(relativePath(it))
+//    def subProjectPath = relativePath(it)
+//    while(!subProjectPath.equals('java/com/android') && !subProjectPath.isEmpty()) {
+//        defineProject(subProjectPath)
+//        subProjectPath = subProjectPath.split('/').dropRight(1).join('/')
+//    }
+}
+
+def defineProject(String path) {
+    def subProjectName = ':' + path.replace('Lineage_Dialer/','').replace('java/com/android/', '').replace('/', '.')
+    include subProjectName
+    project(subProjectName).projectDir = file(path)
+}
