@@ -1,15 +1,21 @@
 def subProjectDirs = fileTree('Lineage_Dialer'){
     include '**/AndroidManifest.xml'
-    //exclude 'AndroidManifest.xml'
 }.collect{ it.getParentFile() }
 
+def blacklist = [
+	'binary/google',
+	'dialer/callstats',
+	'dialer/historyitemactions',
+	'incallui/maps/impl',
+	'incallui/calllocation/impl'
+]
+
 subProjectDirs.each {
-    defineProject(relativePath(it))
-//    def subProjectPath = relativePath(it)
-//    while(!subProjectPath.equals('java/com/android') && !subProjectPath.isEmpty()) {
-//        defineProject(subProjectPath)
-//        subProjectPath = subProjectPath.split('/').dropRight(1).join('/')
-//    }
+	def path = relativePath(it)
+	if(!blacklist.collect{path.contains(it)}.max()){
+		defineProject(relativePath(it))
+	}
+    
 }
 
 def defineProject(String path) {
