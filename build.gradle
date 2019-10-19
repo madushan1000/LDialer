@@ -7,6 +7,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.1'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.10'
     }
 }
 
@@ -21,6 +22,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
     }
     buildDir = rootProject.projectDir.toString() + "/build/${project.name}"
     def deps = new groovy.json.JsonSlurper().setType(JsonParserType.LAX).parse(file(rootProject.projectDir.toString() + '/deps.json'))
@@ -30,6 +34,28 @@ allprojects {
 subprojects{ subproject ->
     if(subproject.name == 'Lineage_Dialer'){
         apply plugin:  'com.android.application'
+        apply plugin: 'com.google.protobuf'
+
+        protobuf {
+            protoc {
+                artifact = 'com.google.protobuf:protoc:3.9.2'
+            }
+            plugins {
+                javalite {
+                    artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+                }
+            }
+            generateProtoTasks {
+                all().each { task ->
+                    task.builtins {
+                        remove java
+                    }
+                    task.plugins {
+                        javalite {}
+                    }
+                }
+            }
+        }
     }
     else {
         apply plugin: 'com.android.library'
@@ -53,20 +79,8 @@ subprojects{ subproject ->
         compileSdkVersion 28
 
         lintOptions { 
-            disable 'MissingTranslation','ExtraTranslation','NotSibling','ProtectedPermissions','AppCompatResource','ImpliedQuantity','RtlCompat','AppLinkUrlError','MissingDefaultResource','StringFormatMatches'
-            //abortOnError false
+            disable 'MissingTranslation','ExtraTranslation','NotSibling','ProtectedPermissions','AppCompatResource','ImpliedQuantity','RtlCompat','AppLinkUrlError','MissingDefaultResource','StringFormatMatches','UsesMinSdkAttributes'
         }
-
-        packagingOptions {
-            exclude 'META-INF/DEPENDENCIES'
-            exclude 'META-INF/LICENSE'
-            exclude 'META-INF/LICENSE.txt'
-            exclude 'META-INF/license.txt'
-            exclude 'META-INF/NOTICE'
-            exclude 'META-INF/NOTICE.txt'
-            exclude 'META-INF/notice.txt'
-            exclude 'META-INF/ASL2.0'
-        }           
 
         defaultConfig {
             minSdkVersion 28
@@ -75,25 +89,31 @@ subprojects{ subproject ->
             versionName "1.0"
         }
 
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
         sourceSets {
             def subProjectDir = subproject.projectDir.toString()
             def resDir = [ subProjectDir + '/res/' ]
             def manifestFile = subProjectDir + '/AndroidManifest.xml'
 
-            // switch(subproject.name){
-            //     case 'dialer.dialpadview':
-            //         resDir += '../callcomposer/res'
-            //         resDir += '../callcomposer/cameraui/res'
-            //     //case 'dialer.calldetails':
-            //         //resDir += '../app/res'
-            //     default:
-            //         break
-            // }
-            //resDir = resDir + (rootProject.projectDir.toString() + '/patch/' + subproject.name + '/res/')
-
             main {
                 res.srcDirs = resDir
                 manifest.srcFile manifestFile
+
+                if(subproject.name == 'Lineage_Dialer') {
+                    java {
+                        srcDirs = [subproject.projectDir.toString()]
+                        gradle.blacklist.each{
+                            exclude ('**/' + it + '/*.java')
+                        }
+                    }
+                    proto {
+                        srcDirs = [subproject.projectDir.toString()]
+                    }
+                }
             }
         }
     }

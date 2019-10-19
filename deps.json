@@ -1,266 +1,4 @@
 {
-   // ":assets.product":[
-   //    "com.android.support:appcompat-v7:28.0.0",
-   //    "com.android.support:cardview-v7:28.0.0"
-   // ],
-   // ":assets.quantum":[
-   //    "com.android.support:appcompat-v7:28.0.0",
-   //    "com.android.support:cardview-v7:28.0.0"
-   // ],
-//    ":contacts.common":[
-//         "com.android.support:appcompat-v7:28.0.0",
-//         ":dialer.util"
-////       ":dialer.theme",
-////       ":assets.product",
-////       ":assets.quantum"
-//    ],
-//   ":dialer.about":[
-//      "com.android.support:support-v4:28.0.0",
-//      ":dialer.common"
-//   //    "com.android.support:appcompat-v7:28.0.0"
-//   ],
-   // ":dialer.app.manifests.activities":[
-   //    ":dialer.app"
-   // ],
-   // ":dialer.assisteddialing":[
-   //    ":dialer.app"
-   // ],
-   // ":dialer.assisteddialing.ui":[
-   //    ":dialer.app",
-   //    ":dialer.assisteddialing"
-   // ],
-   // ":dialer.dialpadview":[
-   //    ":contacts.common",
-   //    ":dialer.widget"
-   // ],
-   // ":dialer.main.impl.bottomnav":[
-  	//   ":dialer.theme",
-  	//   ":dialer.app",
-  	//   "com.android.support:cardview-v7:28.0.0"
-   // ],
-   // ":dialer.main.impl.toolbar":[
-   //    ":dialer.theme",
-   //    ":assets.quantum",
-   //    "com.android.support:cardview-v7:28.0.0",
-   //    "com.android.support:appcompat-v7:28.0.0"
-   // ],
-   // ":dialer.precall.externalreceiver":[
-   //    ":dialer.precall.impl",
-   //    "com.android.support:cardview-v7:28.0.0",
-   //    "com.android.support:appcompat-v7:28.0.0"
-   // ],
-   // ":dialer.precall.impl":[
-   //    ":dialer.theme",
-   //    "com.android.support:cardview-v7:28.0.0",
-   //    "com.android.support:appcompat-v7:28.0.0"
-   // ],
-   // ":dialer.searchfragment.nearbyplaces":[
-   //    ":dialer.theme",
-   //    "com.android.support:cardview-v7:28.0.0",
-   //    "com.android.support:appcompat-v7:28.0.0"
-   // ],
-   // ":dialer.speeddial":[
-   //    ":dialer.app",
-   //    "com.android.support:appcompat-v7:28.0.0"
-   // ],
-   // ":dialer.theme":[
-   //    "com.android.support:cardview-v7:28.0.0",
-   //    "com.android.support:appcompat-v7:28.0.0"
-   // ],
-   // ":dialer.voicemail.listui":[
-   //    ":dialer.theme",
-   //    ":contacts.common",
-   //    ":dialer.voicemail.listui.error"
-   // ],
-   // ":dialer.voicemail.listui.error":[
-   //    ":dialer.theme",
-   //    ":contacts.common"
-   // ],
-   // ":dialer.voicemail.settings":[
-   //    ":dialer.app",
-   //    ":contacts.common"
-   // ],
-   // ":incallui.callpending":[
-   //    "com.android.support:appcompat-v7:28.0.0",
-   //    ":incallui"
-   //    //"com.google.android.gms:play-services:+"
-   // ],
-   // ":incallui.commontheme":[
-   //    ":assets.quantum",
-   //    ":dialer.blocking"
-   // ],
-   // ":incallui.rtt.impl":[
-   //    "com.android.support:appcompat-v7:28.0.0",
-   //    ":incallui.commontheme",
-   //    ":incallui.incall.impl",
-   //    ":dialer.common"
-   // ],
-   // ":incallui.spam":[
-   //    ":incallui"
-   // ],
-   // ":incallui.speakeasy":[
-   //    "com.android.support:appcompat-v7:28.0.0",
-   //    ":dialer.theme"
-   // ],
-   // ":dialer.app.voicemail.error":[
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.dialpadview",
-   //    ":dialer.widget"
-   // ],
-//   ":dialer.app":[
-//      "com.android.support:support-annotations:28.0.0"
-//   //    ":contacts.common",
-//   //    ":dialer.theme",
-//   //    ":assets.product",
-//   //    ":assets.quantum",
-//   //    ":dialer.blocking",
-//   //    ":dialer.dialpadview",
-//   //    ":dialer.util",
-//   //    ":dialer.widget",
-//   //    ":dialer.calldetails",
-//   //    ":dialer.callcomposer"
-//   ],
-   // ":dialer.blocking":[
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.dialpadview",
-   //    ":dialer.widget"
-   // ],
-   // ":dialer.callcomposer.camera.camerafocus":[
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.blocking",
-   //    ":dialer.dialpadview",
-   //    ":dialer.widget"
-   // ],
-   // ":dialer.callcomposer.cameraui":[
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.blocking",
-   //    ":dialer.dialpadview",
-   //    ":dialer.widget"
-   // ],
-   // ":dialer.callcomposer":[
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.blocking",
-   //    ":dialer.callcomposer.cameraui",
-   //    ":dialer.dialpadview",
-   //    ":dialer.widget"
-   // ],
-   // ":dialer.calldetails":[
-   //    ":dialer.calllogutils"
-   // ],
-   // ":dialer.calllog.ui":[
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.blocking",
-   //    ":dialer.dialpadview",
-   //    ":dialer.calllogutils",
-   //    ":dialer.widget"
-   // ],
-   // ":dialer.calllogutils":[
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.dialpadview",
-   //    ":dialer.widget"
-   // ],
-//   ":dialer.common":[
-//      "com.android.support:support-annotations:28.0.0",
-//      "com.android.support:support-v4:28.0.0",
-//      "com.google.dagger:dagger-android:2.24",
-//      "com.google.guava:guava:28.0-android",
-//      "com.google.auto.value:auto-value-annotations:1.7",
-//      ":dialer.util"
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.blocking",
-   //    ":dialer.dialpadview",
-   //    ":dialer.widget"
-   // ],
-   // ":dialer.contactactions":[
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.theme"
-   // ],
-   // ":dialer.contactsfragment":[
-   //    ":dialer.widget",
-   //    ":contacts.common"
-   // ],
-   // ":dialer.enrichedcall.simulator":[
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.blocking",
-   //    ":dialer.dialpadview",
-   //    ":dialer.widget"
-   // ],
-   // ":dialer.phonenumberutil":[
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.blocking",
-   //    ":dialer.dialpadview",
-   //    ":dialer.widget"
-   // ],
-   // ":dialer.postcall":[
-   //    ":dialer.theme",
-   //    "com.android.support:cardview-v7:28.0.0",
-   //    "com.android.support:appcompat-v7:28.0.0"
-   // ],
-   // ":dialer.searchfragment.common":[
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.theme",
-   //    ":contacts.common"
-   // ],
-   // ":dialer.searchfragment.list":[
-   //    ":dialer.searchfragment.common",
-   //    ":dialer.searchfragment.nearbyplaces"
-   // ],
-   // ":dialer.shortcuts":[
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.blocking",
-   //    ":dialer.dialpadview",
-   //    ":dialer.widget"
-   // ],
-//   ":dialer.util":[
-//         "com.google.code.findbugs:jsr305:3.0.2",
-//         "com.android.support:support-annotations:28.0.0",
-//         "com.android.support:support-v4:28.0.0",
-//         "com.android.support:appcompat-v7:28.0.0"
-//   //    ":dialer.theme",
-//   //    ":assets.product",
-//   //    ":assets.quantum",
-//   //    ":dialer.blocking",
-//   //    ":dialer.dialpadview",
-//   //    ":dialer.widget"
-//   ],
-   // ":dialer.widget":[
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.theme",
-   //    ":contacts.common"
-   // ],
-   // ":dialer.main.impl": [
-   //    ":dialer.main.impl.bottomnav",
-   //    ":dialer.main.impl.toolbar",
-   //    ":dialer.theme",
-   //    ":incallui",
-   //    "com.android.support:appcompat-v7:28.0.0",
-   //    "com.android.support:cardview-v7:28.0.0"
-   // ],
    ":Lineage_Dialer":[
       //":com.android.common",
       ":contacts.common",
@@ -319,113 +57,37 @@
       ":voicemail.impl",
       ":voicemail.impl.configui",
       //":com.google.android.libraries.backup",
-      //"com.android.support:design:28.0.0",
+      "com.android.support:design:28.0.0",
       //"com.android.support:transition:28.0.0",
       //"com.android.support:support-v4:28.0.0",
       "com.android.support:cardview-v7:28.0.0",
-      "com.android.support:appcompat-v7:28.0.0"
-      //"com.android.support:recyclerview-v7:28.0.0",
-      //"com.android.support:support-v13:28.0.0",
+      "com.android.support:appcompat-v7:28.0.0",
+      "com.android.support:recyclerview-v7:28.0.0",
+      "com.android.support:support-v13:28.0.0",
       //"com.android.support:support-annotations:28.0.0"
       //"com.android.support:support-dynamic-animation:28.0.0",
-      //"com.google.guava:guava:22.0",
+      "com.google.guava:guava:22.0",
       //"com.google.android.gms:play-services-maps:15.0.1",
       //"com.google.android.gms:play-services-location:15.0.1",
-      //"com.googlecode.libphonenumber:libphonenumber:8.9.5",
-      //"com.googlecode.libphonenumber:geocoder:2.94",
+      "com.googlecode.libphonenumber:libphonenumber:8.9.5",
+      "com.googlecode.libphonenumber:geocoder:2.94",
       //"commons-io:commons-io:2.4",
-      //"com.google.protobuf:protobuf-lite:3.0.1",
-      //"com.google.android:android:4.1.1.4",
+      "com.google.protobuf:protobuf-lite:3.0.1",
+      //"com.google.android:android:4.1.1.4"
       //"javax.inject:javax.inject:1",
-      //"com.google.dagger:dagger-android:2.11",
+      "com.google.dagger:dagger-android:2.11",
       //"com.google.dagger:dagger-android-support:2.11",
-      //"com.github.bumptech.glide:glide:4.7.1",
-      //"me.leolin:ShortcutBadger:1.1.21",
+      "com.github.bumptech.glide:glide:4.7.1",
+      "me.leolin:ShortcutBadger:1.1.21",
       //"com.android.volley:volley:1.1.0",
       //"org.apache.james:apache-mime4j-core:0.8.2",
       //"org.apache.james:apache-mime4j-dom:0.8.2",
       //"io.grpc:grpc-stub:1.12.0",
       //"io.grpc:grpc-okhttp:1.12.0",
       //"io.grpc:grpc-protobuf-lite:1.12.0"
+      "org.lineageos:platform.sdk:+",
+      "com.google.zxing:core:3.4.0",
+      "com.google.auto.value:auto-value-annotations:1.7",
+      ":frameworks_ex.common"
    ]
-   // ":dialershared.bubble":[
-   //    "com.android.support:appcompat-v7:28.0.0"
-   // ],
-   // ":incallui.answer.impl.answermethod":[
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":incallui.commontheme",
-   //    ":dialer.blocking"
-   // ],
-   // ":incallui.answer.impl":[
-   //    "com.android.support:design:28.0.0",
-   //    ":dialer.theme",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":incallui.contactgrid",
-   //    ":incallui.sessiondata",
-   //    ":incallui.commontheme",
-   //    ":dialer.blocking",
-   //    ":incallui.autoresizetext"
-   // ],
-   // ":incallui.audioroute":[
-   //    ":dialer.theme",
-   //    ":assets.quantum"
-   // ],
-   // ":incallui.contactgrid":[
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":incallui.commontheme"
-   // ],
-   // ":incallui.hold":[
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":incallui.commontheme"
-   // ],
-   // ":incallui.incall.impl":[
-   //    "com.android.support:appcompat-v7:28.0.0",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":incallui.commontheme",
-   //    ":incallui.contactgrid",
-   //    ":incallui.autoresizetext"
-   // ],
-   // ":incallui.sessiondata":[
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":incallui.commontheme"
-   // ],
-   // ":incallui.speakerbuttonlogic":[
-   //    "com.android.support:appcompat-v7:28.0.0",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":incallui.commontheme"
-   // ],
-   // ":incallui.telecomeventui":[
-   //    ":dialer.theme"
-   // ],
-   // ":incallui.video.impl":[
-   //    "com.android.support:appcompat-v7:28.0.0",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":incallui.commontheme",
-   //    ":incallui.contactgrid",
-   //    ":incallui.autoresizetext"
-   // ],
-   // ":incallui":[
-   //    "com.android.support:appcompat-v7:28.0.0",
-   //    //":com.android.contacts.common",
-   //    ":assets.product",
-   //    ":assets.quantum",
-   //    ":dialer.blocking",
-   //    ":dialer.dialpadview",
-   //    ":dialer.theme",
-   //    ":incallui.incall.impl",
-   //    ":incallui.video.protocol",
-   //    ":incallui.autoresizetext",
-   //    ":incallui.sessiondata"
-   // ],
-   // ":com.google.android.libraries.backup":[
-   //    "com.android.support:support-annotations:28.0.0"
-   // ]
 }
