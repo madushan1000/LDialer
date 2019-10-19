@@ -19,6 +19,7 @@ subProjectDirs.each {
 	}
 }
 defineProject('frameworks_ex/common')
+defineProject('libbackup')
 
 def defineProject(String path) {
     def subProjectName = ':' + path.replace('Lineage_Dialer/','').replace('java/com/android/', '').replace('/', '.')

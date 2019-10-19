@@ -22,20 +22,38 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
     }
     buildDir = rootProject.projectDir.toString() + "/build/${project.name}"
-    def deps = new groovy.json.JsonSlurper().setType(JsonParserType.LAX).parse(file(rootProject.projectDir.toString() + '/deps.json'))
-    project.ext.set("deps", deps)
 }
 
 subprojects{ subproject ->
     if(subproject.name == 'Lineage_Dialer'){
+
         apply plugin:  'com.android.application'
         apply plugin: 'com.google.protobuf'
 
+        android {
+            sourceSets {
+                main{
+                    java {
+                        srcDirs = [subproject.projectDir.toString()]
+                        gradle.blacklist.each{
+                                exclude ('**/' + it + '/*.java')
+                            }
+                        srcDirs += (rootProject.projectDir.toString() + '/patch')
+                        }
+                    proto {
+                        srcDirs = [subproject.projectDir.toString()]
+                    }
+                    // aidl {
+                    //     srcDirs = [subproject.projectDir.toString()]
+                    //     gradle.blacklist.each{
+                    //             exclude ('**/' + it + '/*.aidl')
+                    //     }
+                    // }
+                }
+            }
+        }
         protobuf {
             protoc {
                 artifact = 'com.google.protobuf:protoc:3.9.2'
@@ -56,23 +74,105 @@ subprojects{ subproject ->
                 }
             }
         }
+
+        dependencies {
+           provided files(rootProject.projectDir.toString() + '/lib/android.jar')
+          //implementation project(":com.android.common")
+          implementation project(":contacts.common")
+          implementation project(":dialer.about")
+          implementation project(":dialer.app")
+          implementation project(":dialer.app.manifests.activities")
+          //implementation project(":dialer.app.voicemail.error")
+          implementation project(":assets.product")
+          implementation project(":assets.quantum")
+          implementation project(":dialer.blocking")
+          implementation project(":dialer.callcomposer")
+          implementation project(":dialer.callcomposer.camera.camerafocus")
+          implementation project(":dialer.callcomposer.cameraui")
+          implementation project(":dialer.calldetails")
+          implementation project(":dialer.calllog.ui")
+          implementation project(":dialer.calllogutils")
+          implementation project(":dialer.common")
+          //implementation project(":dialer.contactactions")
+          implementation project(":dialer.contactsfragment")
+          implementation project(":dialer.dialpadview")
+          implementation project(":dialer.enrichedcall.simulator")
+          implementation project(":dialer.interactions")
+          implementation project(":dialer.main.impl")
+          implementation project(":dialer.main.impl.bottomnav")
+          implementation project(":dialer.main.impl.toolbar")
+          implementation project(":dialer.notification")
+          implementation project(":dialer.oem")
+          implementation project(":dialer.phonenumberutil")
+          implementation project(":dialer.postcall")
+          implementation project(":dialer.searchfragment.common")
+          implementation project(":dialer.searchfragment.list")
+          implementation project(":dialer.searchfragment.nearbyplaces")
+          implementation project(":dialer.shortcuts")
+          implementation project(":dialer.speeddial")
+          implementation project(":dialer.util")
+          implementation project(":dialer.theme")
+          implementation project(":dialer.widget")
+          implementation project(":dialer.lettertile")
+          //implementation project(":dialershared.bubble")
+          implementation project(":incallui")
+          implementation project(":incallui.answer.impl")
+          implementation project(":incallui.answer.impl.affordance")
+          implementation project(":incallui.answer.impl.answermethod")
+          implementation project(":incallui.answer.impl.hint")
+          implementation project(":incallui.audioroute")
+          implementation project(":incallui.autoresizetext")
+          implementation project(":incallui.commontheme")
+          implementation project(":incallui.contactgrid")
+          implementation project(":incallui.disconnectdialog")
+          implementation project(":incallui.incall.impl")
+          implementation project(":incallui.hold")
+          implementation project(":incallui.sessiondata")
+          implementation project(":incallui.speakerbuttonlogic")
+          implementation project(":incallui.telecomeventui")
+          implementation project(":incallui.video.impl")
+          implementation project(":incallui.video.protocol")
+          implementation project(":voicemail.impl")
+          implementation project(":voicemail.impl.configui")
+          implementation project(":frameworks_ex.common")
+          implementation project(":libbackup")
+          implementation "com.android.support:design:28.0.0"
+          //implementation "com.android.support:transition:28.0.0"
+          //implementation "com.android.support:support-v4:28.0.0"
+          implementation "com.android.support:cardview-v7:28.0.0"
+          implementation "com.android.support:appcompat-v7:28.0.0"
+          implementation "com.android.support:recyclerview-v7:28.0.0"
+          implementation "com.android.support:support-v13:28.0.0"
+          //implementation "com.android.support:support-annotations:28.0.0
+          //implementation "com.android.support:support-dynamic-animation:28.0.0"
+          implementation "com.google.guava:guava:28.1-android"
+          //implementation "com.google.android.gms:play-services-maps:15.0.1"
+          //implementation "com.google.android.gms:play-services-location:15.0.1"
+          implementation "com.googlecode.libphonenumber:libphonenumber:8.9.5"
+          implementation "com.googlecode.libphonenumber:geocoder:2.94"
+          implementation "commons-io:commons-io:2.6"
+          implementation "com.google.protobuf:protobuf-lite:3.0.1"
+          //implementation "com.google.android:android:4.1.1.4
+          //implementation "javax.inject:javax.inject:1"
+          implementation "com.google.dagger:dagger-android:2.11"
+          //implementation "com.google.dagger:dagger-android-support:2.11"
+          implementation "com.github.bumptech.glide:glide:4.9.0"
+          annotationProcessor "com.github.bumptech.glide:compiler:4.9.0"
+          implementation "me.leolin:ShortcutBadger:1.1.21"
+          implementation "com.android.volley:volley:1.1.1"
+          implementation "org.apache.james:apache-mime4j-core:0.8.3"
+          implementation "org.apache.james:apache-mime4j-dom:0.8.3"
+          implementation "io.grpc:grpc-stub:1.24.0"
+          implementation "io.grpc:grpc-okhttp:1.24.0"
+          //implementation "io.grpc:grpc-protobuf-lite:1.24.0
+          implementation "javax.annotation:javax.annotation-api:1.3.2"
+          implementation "com.google.zxing:core:3.4.0"
+          implementation "com.google.auto.value:auto-value-annotations:1.7"
+          implementation fileTree(dir: rootProject.projectDir.toString() + "/lib", include: ['lineage-sdk.jar'])
+        }
     }
     else {
         apply plugin: 'com.android.library'
-    }
-
-    dependencies {
-        def subdeps = deps[subproject.path]
-        if(subdeps){
-            subdeps.each{
-                if(it[0] == ':') {
-                    implementation project(it)
-                }
-                else {
-                    implementation it
-                }
-            }
-        }
     }
 
     android {
@@ -98,22 +198,9 @@ subprojects{ subproject ->
             def subProjectDir = subproject.projectDir.toString()
             def resDir = [ subProjectDir + '/res/' ]
             def manifestFile = subProjectDir + '/AndroidManifest.xml'
-
             main {
                 res.srcDirs = resDir
                 manifest.srcFile manifestFile
-
-                if(subproject.name == 'Lineage_Dialer') {
-                    java {
-                        srcDirs = [subproject.projectDir.toString()]
-                        gradle.blacklist.each{
-                            exclude ('**/' + it + '/*.java')
-                        }
-                    }
-                    proto {
-                        srcDirs = [subproject.projectDir.toString()]
-                    }
-                }
             }
         }
     }
