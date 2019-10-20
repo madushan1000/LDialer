@@ -11,13 +11,6 @@ buildscript {
     }
 }
 
-//tasks.whenTaskAdded { task ->
-//    if(task.name.contains('createMockableJar')) {
-//        task.enabled = false
-//    }
-//    println task.name + task.enabled
-//}
-
 allprojects {
     repositories {
         google()
@@ -41,16 +34,17 @@ subprojects{ subproject ->
                                 exclude ('**/' + it + '/*.java')
                             }
                         srcDirs += (rootProject.projectDir.toString() + '/patch')
-                        }
+                    }
+                    res {
+                        srcDirs = rootProject.subprojects.collect{it.projectDir.path + '/res'}
+                        exclude '**/dialer/contactphoto/res/values/dimens.xml'
+                    }
                     proto {
                         srcDirs = [subproject.projectDir.toString()]
                     }
-                    // aidl {
-                    //     srcDirs = [subproject.projectDir.toString()]
-                    //     gradle.blacklist.each{
-                    //             exclude ('**/' + it + '/*.aidl')
-                    //     }
-                    // }
+                    //println res.filter.getExcludes()
+                    //res.sourceFiles.getFiles().each{println it}
+                    //res.sourceFiles.properties.each { println "$it.key -> $it.value" }
                 }
             }
         }
@@ -74,7 +68,6 @@ subprojects{ subproject ->
                 }
             }
         }
-
         dependencies {
            provided files(rootProject.projectDir.toString() + '/lib/android.jar')
           //implementation project(":com.android.common")
@@ -195,11 +188,9 @@ subprojects{ subproject ->
         }
 
         sourceSets {
-            def subProjectDir = subproject.projectDir.toString()
-            def resDir = [ subProjectDir + '/res/' ]
-            def manifestFile = subProjectDir + '/AndroidManifest.xml'
+             
+            def manifestFile = subproject.projectDir.path + '/AndroidManifest.xml'
             main {
-                res.srcDirs = resDir
                 manifest.srcFile manifestFile
             }
         }
