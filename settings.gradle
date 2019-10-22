@@ -9,7 +9,7 @@ gradle.ext.blacklist = [
 	'dialer/constants/googledialer',
 	'incallui/maps/impl',
 	'incallui/calllocation/impl',
-	'contacts/common/format/testing'
+	'contacts/common/format/testing',
 ]
 
 subProjectDirs.each {

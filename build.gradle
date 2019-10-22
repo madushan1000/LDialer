@@ -20,159 +20,233 @@ allprojects {
 }
 
 subprojects{ subproject ->
-    if(subproject.name == 'Lineage_Dialer'){
+    switch (subproject.path) {
+        case ':Lineage_Dialer':
+            apply plugin:  'com.android.application'
+            apply plugin: 'com.google.protobuf'
 
-        apply plugin:  'com.android.application'
-        apply plugin: 'com.google.protobuf'
+            // android.applicationVariants.all { variant ->
+            //     variant.mergeResources.doFirst {
+            //         println it
+            //         exit 0
+            //     }
+            // }
 
-        android {
-            sourceSets {
-                main{
-                    java {
-                        srcDirs = [subproject.projectDir.toString()]
-                        gradle.blacklist.each{
-                                exclude ('**/' + it + '/*.java')
-                            }
-                        srcDirs += (rootProject.projectDir.toString() + '/patch')
-                    }
-                    res {
-                        srcDirs = rootProject.subprojects.collect{it.projectDir.path + '/res'}
-                        exclude '**/dialer/contactphoto/res/values/dimens.xml'
-                    }
-                    proto {
-                        srcDirs = [subproject.projectDir.toString()]
-                    }
-                    //println res.filter.getExcludes()
-                    //res.sourceFiles.getFiles().each{println it}
-                    //res.sourceFiles.properties.each { println "$it.key -> $it.value" }
-                }
-            }
-        }
-        protobuf {
-            protoc {
-                artifact = 'com.google.protobuf:protoc:3.9.2'
-            }
-            plugins {
-                javalite {
-                    artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
-                }
-            }
-            generateProtoTasks {
-                all().each { task ->
-                    task.builtins {
-                        remove java
-                    }
-                    task.plugins {
-                        javalite {}
+            android {
+                //aaptOptions.additionalParameters '--no-static-lib-packages'
+                //aaptOptions.additionalParameters "--extra-packages", "com.android.contacts.common" //com.android.assets.quantum com.android.bubble com.android.contacts.common com.android.dialer.about com.android.dialer.app com.android.dialer.app.manifests.activities com.android.dialer.assisteddialing com.android.dialer.assisteddialing.ui com.android.dialer.backup com.android.dialer.binary.aosp.testing com.android.dialer.binary.google com.android.dialer.blocking com.android.dialer.blockreportspam com.android.dialer.callcomposer com.android.dialer.callcomposer.camera com.android.dialer.callcomposer.camera.camerafocus com.android.dialer.callcomposer.cameraui com.android.dialer.calldetails com.android.dialer.calllog.database com.android.dialer.calllog.ui com.android.dialer.calllog.ui.menu com.android.dialer.calllogutils com.android.dialer.clipboard com.android.dialer.commandline com.android.dialer.common com.android.dialer.configprovider com.android.dialer.contactphoto com.android.dialer.contactsfragment com.android.dialer.databasepopulator com.android.dialer.dialpadview com.android.dialer.enrichedcall.simulator com.android.dialer.feedback com.android.dialer.glidephotomanager.impl com.android.dialer.historyitemactions com.android.dialer.interactions com.android.dialer.lettertile com.android.dialer.location com.android.dialer.main.impl com.android.dialer.main.impl.toolbar com.android.dialer.main.impl.bottomnav com.android.dialer.notification com.android.dialer.oem com.android.dialer.phonelookup.database com.android.dialer.phonenumberutil com.android.dialer.postcall com.android.dialer.precall.impl com.android.dialer.precall.externalreceiver com.android.dialer.preferredsim.impl com.android.dialer.searchfragment.common com.android.dialer.searchfragment.cp2 com.android.dialer.searchfragment.directories com.android.dialer.searchfragment.list com.android.dialer.searchfragment.nearbyplaces com.android.dialer.searchfragment.remote com.android.dialer.shortcuts com.android.dialer.simulator.impl com.android.dialer.speeddial com.android.dialer.theme com.android.dialer.util com.android.dialer.voicemail.listui com.android.dialer.voicemail.listui.error com.android.dialer.voicemail.listui.menu com.android.dialer.voicemail.settings com.android.dialer.voicemailstatus com.android.dialer.widget com.android.incallui com.android.incallui.answer.impl.affordance com.android.incallui.answer.impl com.android.incallui.answer.impl.answermethod com.android.incallui.answer.impl.hint com.android.incallui.audioroute com.android.incallui.autoresizetext com.android.incallui.calllocation.impl com.android.incallui.callpending com.android.incallui.commontheme com.android.incallui.contactgrid com.android.incallui.disconnectdialog com.android.incallui.hold com.android.incallui.incall.impl com.android.incallui.maps.impl com.android.incallui.rtt.impl com.android.incallui.rtt.protocol com.android.incallui.speakeasy com.android.incallui.sessiondata com.android.incallui.spam com.android.incallui.speakerbuttonlogic com.android.incallui.telecomeventui com.android.incallui.video.impl com.android.incallui.video.protocol com.android.phoneapphelper com.android.voicemail com.android.voicemail.impl com.android.voicemail.impl.configui"
+                sourceSets {
+                    main{
+                        java {
+                            srcDirs = [subproject.projectDir.toString()]
+                            gradle.blacklist.each{
+                                    exclude ('**/' + it + '/*.java')
+                                }
+                            srcDirs += (rootProject.projectDir.toString() + '/patch')
+                        }
+                        proto {
+                            srcDirs = [subproject.projectDir.toString()]
+                        }
                     }
                 }
             }
-        }
-        dependencies {
-           provided files(rootProject.projectDir.toString() + '/lib/android.jar')
-          //implementation project(":com.android.common")
-          implementation project(":contacts.common")
-          implementation project(":dialer.about")
-          implementation project(":dialer.app")
-          implementation project(":dialer.app.manifests.activities")
-          //implementation project(":dialer.app.voicemail.error")
-          implementation project(":assets.product")
-          implementation project(":assets.quantum")
-          implementation project(":dialer.blocking")
-          implementation project(":dialer.callcomposer")
-          implementation project(":dialer.callcomposer.camera.camerafocus")
-          implementation project(":dialer.callcomposer.cameraui")
-          implementation project(":dialer.calldetails")
-          implementation project(":dialer.calllog.ui")
-          implementation project(":dialer.calllogutils")
-          implementation project(":dialer.common")
-          //implementation project(":dialer.contactactions")
-          implementation project(":dialer.contactsfragment")
-          implementation project(":dialer.dialpadview")
-          implementation project(":dialer.enrichedcall.simulator")
-          implementation project(":dialer.interactions")
-          implementation project(":dialer.main.impl")
-          implementation project(":dialer.main.impl.bottomnav")
-          implementation project(":dialer.main.impl.toolbar")
-          implementation project(":dialer.notification")
-          implementation project(":dialer.oem")
-          implementation project(":dialer.phonenumberutil")
-          implementation project(":dialer.postcall")
-          implementation project(":dialer.searchfragment.common")
-          implementation project(":dialer.searchfragment.list")
-          implementation project(":dialer.searchfragment.nearbyplaces")
-          implementation project(":dialer.shortcuts")
-          implementation project(":dialer.speeddial")
-          implementation project(":dialer.util")
-          implementation project(":dialer.theme")
-          implementation project(":dialer.widget")
-          implementation project(":dialer.lettertile")
-          //implementation project(":dialershared.bubble")
-          implementation project(":incallui")
-          implementation project(":incallui.answer.impl")
-          implementation project(":incallui.answer.impl.affordance")
-          implementation project(":incallui.answer.impl.answermethod")
-          implementation project(":incallui.answer.impl.hint")
-          implementation project(":incallui.audioroute")
-          implementation project(":incallui.autoresizetext")
-          implementation project(":incallui.commontheme")
-          implementation project(":incallui.contactgrid")
-          implementation project(":incallui.disconnectdialog")
-          implementation project(":incallui.incall.impl")
-          implementation project(":incallui.hold")
-          implementation project(":incallui.sessiondata")
-          implementation project(":incallui.speakerbuttonlogic")
-          implementation project(":incallui.telecomeventui")
-          implementation project(":incallui.video.impl")
-          implementation project(":incallui.video.protocol")
-          implementation project(":voicemail.impl")
-          implementation project(":voicemail.impl.configui")
-          implementation project(":frameworks_ex.common")
-          implementation project(":libbackup")
-          implementation "com.android.support:design:28.0.0"
-          //implementation "com.android.support:transition:28.0.0"
-          //implementation "com.android.support:support-v4:28.0.0"
-          implementation "com.android.support:cardview-v7:28.0.0"
-          implementation "com.android.support:appcompat-v7:28.0.0"
-          implementation "com.android.support:recyclerview-v7:28.0.0"
-          implementation "com.android.support:support-v13:28.0.0"
-          //implementation "com.android.support:support-annotations:28.0.0
-          //implementation "com.android.support:support-dynamic-animation:28.0.0"
-          implementation "com.google.guava:guava:28.1-android"
-          //implementation "com.google.android.gms:play-services-maps:15.0.1"
-          //implementation "com.google.android.gms:play-services-location:15.0.1"
-          implementation "com.googlecode.libphonenumber:libphonenumber:8.9.5"
-          implementation "com.googlecode.libphonenumber:geocoder:2.94"
-          implementation "commons-io:commons-io:2.6"
-          implementation "com.google.protobuf:protobuf-lite:3.0.1"
-          //implementation "com.google.android:android:4.1.1.4
-          //implementation "javax.inject:javax.inject:1"
-          implementation "com.google.dagger:dagger-android:2.11"
-          //implementation "com.google.dagger:dagger-android-support:2.11"
-          implementation "com.github.bumptech.glide:glide:4.9.0"
-          annotationProcessor "com.github.bumptech.glide:compiler:4.9.0"
-          implementation "me.leolin:ShortcutBadger:1.1.21"
-          implementation "com.android.volley:volley:1.1.1"
-          implementation "org.apache.james:apache-mime4j-core:0.8.3"
-          implementation "org.apache.james:apache-mime4j-dom:0.8.3"
-          implementation "io.grpc:grpc-stub:1.24.0"
-          implementation "io.grpc:grpc-okhttp:1.24.0"
-          //implementation "io.grpc:grpc-protobuf-lite:1.24.0
-          implementation "javax.annotation:javax.annotation-api:1.3.2"
-          implementation "com.google.zxing:core:3.4.0"
-          implementation "com.google.auto.value:auto-value-annotations:1.7"
-          implementation fileTree(dir: rootProject.projectDir.toString() + "/lib", include: ['lineage-sdk.jar'])
-        }
-    }
-    else {
-        apply plugin: 'com.android.library'
-    }
+            configurations {
+              compile.exclude group: 'com.google.protobuf', module: 'protobuf-java'
+            }
+            protobuf {
+                protoc {
+                    artifact = 'com.google.protobuf:protoc:3.9.2'
+                }
+                plugins {
+                    javalite {
+                        artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+                    }
+                }
+                generateProtoTasks {
+                    all().each { task ->
+                        task.builtins {
+                            remove java
+                        }
+                        task.plugins {
+                            javalite {}
+                        }
+                    }
+                }
+            }      
+            dependencies {
+              provided files(rootProject.projectDir.toString() + '/lib/android.jar')
+              //implementation project(":com.android.common")
+              implementation project(":contacts.common")
+              implementation project(":dialer.about")
+              implementation project(":dialer.app")
+              implementation project(":dialer.app.manifests.activities")
+              //implementation project(":dialer.app.voicemail.error")
+              implementation project(":assets.product")
+              implementation project(":assets.quantum")
+              implementation project(":dialer.blocking")
+              implementation project(":dialer.callcomposer")
+              implementation project(":dialer.callcomposer.camera.camerafocus")
+              implementation project(":dialer.callcomposer.cameraui")
+              implementation project(":dialer.calldetails")
+              implementation project(":dialer.calllog.ui")
+              implementation project(":dialer.calllogutils")
+              implementation project(":dialer.common")
+              //implementation project(":dialer.contactactions")
+              implementation project(":dialer.callstats")
+              implementation project(":dialer.contactsfragment")
+              implementation project(":dialer.dialpadview")
+              implementation project(":dialer.enrichedcall.simulator")
+              implementation project(":dialer.interactions")
+              implementation project(":dialer.main.impl")
+              implementation project(":dialer.main.impl.bottomnav")
+              implementation project(":dialer.main.impl.toolbar")
+              implementation project(":dialer.notification")
+              implementation project(":dialer.oem")
+              implementation project(":dialer.phonenumberutil")
+              implementation project(":dialer.postcall")
+              implementation project(":dialer.searchfragment.common")
+              implementation project(":dialer.searchfragment.list")
+              implementation project(":dialer.searchfragment.nearbyplaces")
+              implementation project(":dialer.shortcuts")
+              implementation project(":dialer.speeddial")
+              implementation project(":dialer.util")
+              implementation project(":dialer.theme")
+              implementation project(":dialer.widget")
+              implementation project(":dialer.lettertile")
+              //implementation project(":dialershared.bubble")
+              implementation project(":incallui")
+              implementation project(":incallui.answer.impl")
+              implementation project(":incallui.answer.impl.affordance")
+              implementation project(":incallui.answer.impl.answermethod")
+              implementation project(":incallui.answer.impl.hint")
+              implementation project(":incallui.audioroute")
+              implementation project(":incallui.autoresizetext")
+              implementation project(":incallui.commontheme")
+              implementation project(":incallui.contactgrid")
+              implementation project(":incallui.disconnectdialog")
+              implementation project(":incallui.incall.impl")
+              implementation project(":incallui.hold")
+              implementation project(":incallui.sessiondata")
+              implementation project(":incallui.speakerbuttonlogic")
+              implementation project(":incallui.telecomeventui")
+              implementation project(":incallui.video.impl")
+              implementation project(":incallui.video.protocol")
+              implementation project(":voicemail.impl")
+              implementation project(":voicemail.impl.configui")
+              implementation project(":frameworks_ex.common")
+              implementation project(":libbackup")
+              
+              implementation 'com.android.support:support-v13:28.0.0'
+              implementation 'com.android.support:support-v4:28.0.0'
+              implementation 'com.android.support:support-v4:28.0.0'
+              implementation 'com.android.support:appcompat-v7:28.0.0'
+              implementation 'com.android.support:recyclerview-v7:28.0.0'
+              implementation 'com.android.support:cardview-v7:28.0.0'
+              implementation 'com.android.support:design:28.0.0'
 
+              implementation "com.google.guava:guava:23.0"
+              implementation 'com.google.errorprone:error_prone_annotations:2.0.18'
+
+              implementation 'com.google.dagger:dagger:2.7'
+              annotationProcessor 'com.google.dagger:dagger-compiler:2.7'
+              
+              implementation 'com.github.bumptech.glide:disklrucache:4.9.0'
+              implementation 'com.github.bumptech.glide:gifdecoder:4.9.0'
+              implementation 'com.github.bumptech.glide:glide:4.9.0'
+              implementation 'com.github.bumptech.glide:annotations:4.9.0'
+              annotationProcessor "com.github.bumptech.glide:compiler:4.9.0"
+
+              implementation "javax.annotation:javax.annotation-api:1.2"
+              implementation "me.leolin:ShortcutBadger:1.1.13"
+              implementation "javax.inject:javax.inject:1"
+              implementation 'commons-io:commons-io:2.4'
+              implementation 'org.apache.james:apache-mime4j-core:0.7.2'
+              implementation 'org.apache.james:apache-mime4j-dom:0.7.2'
+
+              implementation 'io.grpc:grpc-core:1.0.3'
+              implementation 'io.grpc:grpc-protobuf-lite:1.0.3'
+              implementation 'io.grpc:grpc-okhttp:1.0.3'
+              implementation 'io.grpc:grpc-stub:1.0.3'
+              implementation 'io.grpc:grpc-all:1.0.3'
+              implementation 'io.grpc:grpc-context:1.0.3'
+
+              implementation "com.googlecode.libphonenumber:libphonenumber:8.9.5"
+              implementation "com.googlecode.libphonenumber:geocoder:2.94"
+              implementation "commons-io:commons-io:2.6"
+
+              implementation "com.android.volley:volley:1.1.1"
+              
+              implementation "com.google.zxing:core:3.4.0"
+
+              implementation "com.google.auto.value:auto-value:1.5.2"
+              annotationProcessor "com.google.auto.value:auto-value:1.5.2"
+
+              implementation fileTree(dir: rootProject.projectDir.toString() + "/lib", include: ['lineage-sdk.jar'])
+            }
+
+            break
+
+        case ':contacts.common':
+            apply plugin: 'com.android.library'
+            dependencies {
+                implementation project(":dialer.lettertile")
+                implementation project(":dialer.theme")
+                implementation project(":assets.quantum")
+                implementation project(":dialer.contactphoto")
+            }
+            break
+        case ':dialer.dialpadview':
+            apply plugin: 'com.android.library'
+            dependencies {
+                implementation project(":assets.quantum")
+            }
+            break
+        case ':dialer.calllog.ui':
+            apply plugin: 'com.android.library'
+            dependencies {
+                implementation project(":assets.quantum")
+            }
+            break
+        case ':dialer.app':
+            apply plugin: 'com.android.library'
+            dependencies {
+                implementation project(":dialer.widget")
+                implementation project(":assets.quantum")
+                implementation project(":dialer.theme")
+                implementation project(":dialer.dialpadview")
+                implementation project(":dialer.blocking")
+            }
+            break
+        case ':dialer.contactsfragment':
+            apply plugin: 'com.android.library'
+            dependencies {
+                implementation project(":dialer.widget")
+            }
+            break
+        case ':dialer.lettertile':
+            apply plugin: 'com.android.library'
+            dependencies {
+                implementation project(":assets.product")
+                implementation project(":assets.quantum")
+            }
+            break
+        case ':dialer.calllogutils':
+            apply plugin: 'com.android.library'
+            dependencies {
+                implementation project(":assets.product")
+                //implementation project(":assets.quantum")
+            }
+            break
+        default:
+            apply plugin: 'com.android.library'
+            break
+        }
     android {
         compileSdkVersion 28
 
         lintOptions { 
             disable 'MissingTranslation','ExtraTranslation','NotSibling','ProtectedPermissions','AppCompatResource','ImpliedQuantity','RtlCompat','AppLinkUrlError','MissingDefaultResource','StringFormatMatches','UsesMinSdkAttributes'
+            abortOnError false
         }
 
         defaultConfig {
@@ -188,11 +262,8 @@ subprojects{ subproject ->
         }
 
         sourceSets {
-             
-            def manifestFile = subproject.projectDir.path + '/AndroidManifest.xml'
-            main {
-                manifest.srcFile manifestFile
-            }
+            main.res.srcDirs = [subproject.projectDir.path + '/res']
+            main.manifest.srcFile (subproject.projectDir.path + '/AndroidManifest.xml')
         }
     }
 }
