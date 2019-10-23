@@ -8,7 +8,7 @@ To build,
 * Comment out `logtags.srcDirs = ['java']` from `framework_ex/common/build.gradle`
 * Run `./gradlew :Lineage_Dialer:assembleDebug` or `./gradlew :Lineage_Dialer:assembleRelease`
 
-##Notes
+## Notes
 
 * I'm not sure if this application will actually run without crashes, I don't want to replace my system dialer with this app. Need to fork LineageOS Dialer and change package names etc.. to make it installable as a separate app.
 * Other AOSP based Dialer apps might compile with these build scripts too with minimal modifications.
