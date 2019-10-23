@@ -5,7 +5,7 @@ This is the build script to build LineageOS Dialer app outside the LineageOS sou
 To build,
 
 * clone this repo and submodules (`git clone --recurse-submodules https://github.com/madushan1000/LDialer`)
-* Comment out `logtags.srcDirs = ['java']` from `framework_ex/common/build.gradle`
+* Comment out `logtags.srcDirs = ['java']`, and `apply plugin: 'logtags'` from `framework_ex/common/build.gradle`
 * Run `./gradlew :Lineage_Dialer:assembleDebug` or `./gradlew :Lineage_Dialer:assembleRelease`
 
 ## Notes
