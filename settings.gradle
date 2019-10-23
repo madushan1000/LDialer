@@ -1,10 +1,10 @@
-def subProjectDirs = fileTree('Lineage_Dialer'){
+def subProjectDirs = fileTree('Dialer2'){
     include '**/AndroidManifest.xml'
 }.collect{ it.getParentFile() }
 
 gradle.ext.blacklist = [
-	'dialer/binary/google',
-	'dialer/constants/googledialer',
+	'dialer2/binary/google',
+	'dialer2/constants/googledialer',
 	'incallui/maps/impl',
 	'incallui/calllocation/impl',
 	'contacts/common/format/testing',
@@ -20,7 +20,7 @@ defineProject('frameworks_ex/common')
 defineProject('libbackup')
 
 def defineProject(String path) {
-    def subProjectName = ':' + path.replace('Lineage_Dialer/','').replace('java/com/android/', '').replace('/', '.')
+    def subProjectName = ':' + path.replace('Dialer2/','').replace('java/com/android/', '').replace('/', '.')
     include subProjectName
     project(subProjectName).projectDir = file(path)
 }

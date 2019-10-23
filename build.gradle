@@ -23,7 +23,7 @@ allprojects {
 
 subprojects{ subproject ->
     switch (subproject.path) {
-        case ':Lineage_Dialer':
+        case ':Dialer2':
             apply plugin:  'com.android.application'
             apply plugin: 'com.google.protobuf'
 
@@ -95,66 +95,66 @@ subprojects{ subproject ->
               implementation project(":assets.product")
               implementation project(":assets.quantum")
               implementation project(":contacts.common")
-              implementation project(":dialer.about")
-              implementation project(":dialer.app")
-              implementation project(":dialer.app.manifests.activities")
-              implementation project(":dialer.assisteddialing")
-              implementation project(":dialer.assisteddialing.ui")
-              implementation project(":dialer.backup")
-              implementation project(":dialer.blocking")
-              implementation project(":dialer.blockreportspam")
-              implementation project(":dialer.callcomposer")
-              implementation project(":dialer.callcomposer.camera")
-              implementation project(":dialer.callcomposer.camera.camerafocus")
-              implementation project(":dialer.callcomposer.cameraui")
-              implementation project(":dialer.calldetails")
-              implementation project(":dialer.calllog.database")
-              implementation project(":dialer.calllog.ui")
-              implementation project(":dialer.calllog.ui.menu")
-              implementation project(":dialer.calllogutils")
-              implementation project(":dialer.callrecord")
-              implementation project(":dialer.callstats")
-              implementation project(":dialer.clipboard")
-              implementation project(":dialer.common")
-              implementation project(":dialer.configprovider")
-              implementation project(":dialer.contactphoto")
-              implementation project(":dialer.contactsfragment")
-              implementation project(":dialer.databasepopulator")
-              implementation project(":dialer.dialpadview")
-              implementation project(":dialer.enrichedcall.simulator")
-              implementation project(":dialer.glidephotomanager.impl")
-              implementation project(":dialer.historyitemactions")
-              implementation project(":dialer.interactions")
-              implementation project(":dialer.lettertile")
-              implementation project(":dialer.location")
-              implementation project(":dialer.lookup")
-              implementation project(":dialer.main.impl")
-              implementation project(":dialer.main.impl.bottomnav")
-              implementation project(":dialer.main.impl.toolbar")
-              implementation project(":dialer.notification")
-              implementation project(":dialer.oem")
-              implementation project(":dialer.phonelookup.database")
-              implementation project(":dialer.phonenumberutil")
-              implementation project(":dialer.postcall")
-              implementation project(":dialer.precall.externalreceiver")
-              implementation project(":dialer.precall.impl")
-              implementation project(":dialer.preferredsim.impl")
-              implementation project(":dialer.searchfragment.common")
-              implementation project(":dialer.searchfragment.cp2")
-              implementation project(":dialer.searchfragment.directories")
-              implementation project(":dialer.searchfragment.list")
-              implementation project(":dialer.searchfragment.nearbyplaces")
-              implementation project(":dialer.shortcuts")
-              implementation project(":dialer.simulator.impl")
-              implementation project(":dialer.speeddial")
-              implementation project(":dialer.theme")
-              implementation project(":dialer.util")
-              implementation project(":dialer.voicemail.listui")
-              implementation project(":dialer.voicemail.listui.error")
-              implementation project(":dialer.voicemail.listui.menu")
-              implementation project(":dialer.voicemail.settings")
-              implementation project(":dialer.voicemailstatus")
-              implementation project(":dialer.widget")
+              implementation project(":dialer2.about")
+              implementation project(":dialer2.app")
+              implementation project(":dialer2.app.manifests.activities")
+              implementation project(":dialer2.assisteddialing")
+              implementation project(":dialer2.assisteddialing.ui")
+              implementation project(":dialer2.backup")
+              implementation project(":dialer2.blocking")
+              implementation project(":dialer2.blockreportspam")
+              implementation project(":dialer2.callcomposer")
+              implementation project(":dialer2.callcomposer.camera")
+              implementation project(":dialer2.callcomposer.camera.camerafocus")
+              implementation project(":dialer2.callcomposer.cameraui")
+              implementation project(":dialer2.calldetails")
+              implementation project(":dialer2.calllog.database")
+              implementation project(":dialer2.calllog.ui")
+              implementation project(":dialer2.calllog.ui.menu")
+              implementation project(":dialer2.calllogutils")
+              implementation project(":dialer2.callrecord")
+              implementation project(":dialer2.callstats")
+              implementation project(":dialer2.clipboard")
+              implementation project(":dialer2.common")
+              implementation project(":dialer2.configprovider")
+              implementation project(":dialer2.contactphoto")
+              implementation project(":dialer2.contactsfragment")
+              implementation project(":dialer2.databasepopulator")
+              implementation project(":dialer2.dialpadview")
+              implementation project(":dialer2.enrichedcall.simulator")
+              implementation project(":dialer2.glidephotomanager.impl")
+              implementation project(":dialer2.historyitemactions")
+              implementation project(":dialer2.interactions")
+              implementation project(":dialer2.lettertile")
+              implementation project(":dialer2.location")
+              implementation project(":dialer2.lookup")
+              implementation project(":dialer2.main.impl")
+              implementation project(":dialer2.main.impl.bottomnav")
+              implementation project(":dialer2.main.impl.toolbar")
+              implementation project(":dialer2.notification")
+              implementation project(":dialer2.oem")
+              implementation project(":dialer2.phonelookup.database")
+              implementation project(":dialer2.phonenumberutil")
+              implementation project(":dialer2.postcall")
+              implementation project(":dialer2.precall.externalreceiver")
+              implementation project(":dialer2.precall.impl")
+              implementation project(":dialer2.preferredsim.impl")
+              implementation project(":dialer2.searchfragment.common")
+              implementation project(":dialer2.searchfragment.cp2")
+              implementation project(":dialer2.searchfragment.directories")
+              implementation project(":dialer2.searchfragment.list")
+              implementation project(":dialer2.searchfragment.nearbyplaces")
+              implementation project(":dialer2.shortcuts")
+              implementation project(":dialer2.simulator.impl")
+              implementation project(":dialer2.speeddial")
+              implementation project(":dialer2.theme")
+              implementation project(":dialer2.util")
+              implementation project(":dialer2.voicemail.listui")
+              implementation project(":dialer2.voicemail.listui.error")
+              implementation project(":dialer2.voicemail.listui.menu")
+              implementation project(":dialer2.voicemail.settings")
+              implementation project(":dialer2.voicemailstatus")
+              implementation project(":dialer2.widget")
               implementation project(":incallui")
               implementation project(":incallui.answer.impl")
               implementation project(":incallui.answer.impl.affordance")
@@ -241,204 +241,204 @@ subprojects{ subproject ->
         case ':contacts.common':
             apply plugin: 'com.android.library'
             dependencies {
-                implementation project(":dialer.lettertile")
-                implementation project(":dialer.theme")
+                implementation project(":dialer2.lettertile")
+                implementation project(":dialer2.theme")
                 implementation project(":assets.quantum")
-                implementation project(":dialer.contactphoto")
+                implementation project(":dialer2.contactphoto")
             }
             break
-        case ':dialer.dialpadview':
+        case ':dialer2.dialpadview':
             apply plugin: 'com.android.library'
             dependencies {
                 implementation project(":assets.quantum")
             }
             break
-        case ':dialer.calllog.ui':
+        case ':dialer2.calllog.ui':
             apply plugin: 'com.android.library'
             dependencies {
                 implementation project(":assets.quantum")
             }
             break
-        case ':dialer.app':
+        case ':dialer2.app':
             apply plugin: 'com.android.library'
             dependencies {
-                implementation project(":dialer.widget")
+                implementation project(":dialer2.widget")
                 implementation project(":assets.quantum")
-                implementation project(":dialer.theme")
-                implementation project(":dialer.dialpadview")
-                implementation project(":dialer.blocking")
-                implementation project(":dialer.util")
-                implementation project(":dialer.calllog.ui.menu")
-                implementation project(":dialer.lookup")
+                implementation project(":dialer2.theme")
+                implementation project(":dialer2.dialpadview")
+                implementation project(":dialer2.blocking")
+                implementation project(":dialer2.util")
+                implementation project(":dialer2.calllog.ui.menu")
+                implementation project(":dialer2.lookup")
                 implementation project(":contacts.common")
             }
             break
-        case ':dialer.contactsfragment':
+        case ':dialer2.contactsfragment':
             apply plugin: 'com.android.library'
             dependencies {
-                implementation project(":dialer.widget")
+                implementation project(":dialer2.widget")
             }
             break
-        case ':dialer.lettertile':
+        case ':dialer2.lettertile':
             apply plugin: 'com.android.library'
             dependencies {
                 implementation project(":assets.product")
                 implementation project(":assets.quantum")
             }
             break
-        case ':dialer.calllogutils':
+        case ':dialer2.calllogutils':
             apply plugin: 'com.android.library'
             dependencies {
                 implementation project(":assets.product")
                 implementation project(":assets.quantum")
-                implementation project(":dialer.theme")
+                implementation project(":dialer2.theme")
             }
             break
-        case ':dialer.enrichedcall.simulator':
+        case ':dialer2.enrichedcall.simulator':
             apply plugin: 'com.android.library'
             dependencies {
-                implementation project(':dialer.theme')
+                implementation project(':dialer2.theme')
                 implementation project(':assets.quantum')
-                implementation project(':dialer.blocking')
-                implementation project(':dialer.dialpadview')
-                implementation project(':dialer.widget')
+                implementation project(':dialer2.blocking')
+                implementation project(':dialer2.dialpadview')
+                implementation project(':dialer2.widget')
             }
             afterEvaluate {
                 generateReleaseBuildConfig.enabled = false
             }
             break
-        case ':dialer.app.voicemail.error':
+        case ':dialer2.app.voicemail.error':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
             implementation project(':assets.quantum')
-            implementation project(':dialer.dialpadview')
-            implementation project(':dialer.widget')
+            implementation project(':dialer2.dialpadview')
+            implementation project(':dialer2.widget')
           }
           break
-        case ':dialer.blocking':
+        case ':dialer2.blocking':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
             implementation project(':assets.quantum')
-            implementation project(':dialer.dialpadview')
-            implementation project(':dialer.widget')
+            implementation project(':dialer2.dialpadview')
+            implementation project(':dialer2.widget')
           }
           break
-        case ':dialer.callcomposer.camera.camerafocus':
+        case ':dialer2.callcomposer.camera.camerafocus':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
             implementation project(':assets.quantum')
-            implementation project(':dialer.blocking')
-            implementation project(':dialer.dialpadview')
-            implementation project(':dialer.widget')
+            implementation project(':dialer2.blocking')
+            implementation project(':dialer2.dialpadview')
+            implementation project(':dialer2.widget')
           }
           break
-        case ':dialer.callcomposer.cameraui':
+        case ':dialer2.callcomposer.cameraui':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
             implementation project(':assets.quantum')
-            implementation project(':dialer.blocking')
-            implementation project(':dialer.dialpadview')
-            implementation project(':dialer.widget')
+            implementation project(':dialer2.blocking')
+            implementation project(':dialer2.dialpadview')
+            implementation project(':dialer2.widget')
           }
           break
-        case ':dialer.callcomposer':
+        case ':dialer2.callcomposer':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
             implementation project(':assets.quantum')
-            implementation project(':dialer.blocking')
-            implementation project(':dialer.callcomposer.cameraui')
-            implementation project(':dialer.dialpadview')
-            implementation project(':dialer.widget')
+            implementation project(':dialer2.blocking')
+            implementation project(':dialer2.callcomposer.cameraui')
+            implementation project(':dialer2.dialpadview')
+            implementation project(':dialer2.widget')
           }
           break
-        case ':dialer.calldetails':
+        case ':dialer2.calldetails':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.util')
-            implementation project(':dialer.calllogutils')
+            implementation project(':dialer2.util')
+            implementation project(':dialer2.calllogutils')
           }
           afterEvaluate{
               generateReleaseBuildConfig.enabled = false
           }
           break
-        case ':dialer.common':
+        case ':dialer2.common':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
             implementation project(':assets.quantum')
-            implementation project(':dialer.blocking')
-            implementation project(':dialer.dialpadview')
-            implementation project(':dialer.widget')
+            implementation project(':dialer2.blocking')
+            implementation project(':dialer2.dialpadview')
+            implementation project(':dialer2.widget')
           }
           break
-        case ':dialer.contactactions':
+        case ':dialer2.contactactions':
             apply plugin: 'com.android.library'
           dependencies {
             implementation project(':assets.quantum')
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
           }
           break
-        case ':dialer.phonenumberutil':
+        case ':dialer2.phonenumberutil':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
             implementation project(':assets.quantum')
-            implementation project(':dialer.blocking')
-            implementation project(':dialer.dialpadview')
-            implementation project(':dialer.widget')
+            implementation project(':dialer2.blocking')
+            implementation project(':dialer2.dialpadview')
+            implementation project(':dialer2.widget')
           }
           break
-        case ':dialer.postcall':
+        case ':dialer2.postcall':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
           }
           break
-        case ':dialer.searchfragment.common':
+        case ':dialer2.searchfragment.common':
             apply plugin: 'com.android.library'
           dependencies {
             implementation project(':assets.quantum')
             implementation project(':contacts.common')
           }
           break
-        case ':dialer.searchfragment.list':
+        case ':dialer2.searchfragment.list':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.widget')
-            implementation project(':dialer.searchfragment.common')
-            implementation project(':dialer.searchfragment.nearbyplaces')
+            implementation project(':dialer2.widget')
+            implementation project(':dialer2.searchfragment.common')
+            implementation project(':dialer2.searchfragment.nearbyplaces')
           }
           break
-        case ':dialer.shortcuts':
+        case ':dialer2.shortcuts':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
             implementation project(':assets.quantum')
-            implementation project(':dialer.blocking')
-            implementation project(':dialer.dialpadview')
-            implementation project(':dialer.widget')
+            implementation project(':dialer2.blocking')
+            implementation project(':dialer2.dialpadview')
+            implementation project(':dialer2.widget')
           }
           break
-        case ':dialer.util':
+        case ':dialer2.util':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
             implementation project(':assets.quantum')
-            implementation project(':dialer.blocking')
-            implementation project(':dialer.dialpadview')
-            implementation project(':dialer.widget')
+            implementation project(':dialer2.blocking')
+            implementation project(':dialer2.dialpadview')
+            implementation project(':dialer2.widget')
           }
           break
-        case ':dialer.widget':
+        case ':dialer2.widget':
             apply plugin: 'com.android.library'
           dependencies {
             implementation project(':assets.quantum')
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
           }
           break
         case ':incallui':
@@ -447,9 +447,9 @@ subprojects{ subproject ->
           dependencies {
             implementation project(':contacts.common')
             implementation project(':assets.quantum')
-            implementation project(':dialer.blocking')
-            implementation project(':dialer.dialpadview')
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.blocking')
+            implementation project(':dialer2.dialpadview')
+            implementation project(':dialer2.theme')
             implementation project(':incallui.video.protocol')
             implementation project(':incallui.commontheme')
             implementation project(':incallui.contactgrid')
@@ -466,7 +466,7 @@ subprojects{ subproject ->
           dependencies {
             implementation 'com.android.support:design:28.0.0'
             implementation 'com.android.support:appcompat-v7:28.0.0'
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
             implementation project(':assets.quantum')
             implementation project(':incallui.contactgrid')
           }
@@ -474,7 +474,7 @@ subprojects{ subproject ->
         case ':incallui.audioroute':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
           }
           break
         case ':incallui.contactgrid':
@@ -515,7 +515,7 @@ subprojects{ subproject ->
         case ':incallui.telecomeventui':
             apply plugin: 'com.android.library'
           dependencies {
-            implementation project(':dialer.theme')
+            implementation project(':dialer2.theme')
           }
           break
         case ':incallui.video.impl':
@@ -526,56 +526,56 @@ subprojects{ subproject ->
             implementation project(':incallui.commontheme')
           }
           break
-        case ':dialer.calllog.ui.menu':
+        case ':dialer2.calllog.ui.menu':
             apply plugin: 'com.android.library'
             dependencies {
                 implementation project(':assets.quantum')
             }
             break
-        case ':dialer.assisteddialing.ui':
+        case ':dialer2.assisteddialing.ui':
             apply plugin: 'com.android.library'
             dependencies {
-                implementation project(':dialer.assisteddialing')
+                implementation project(':dialer2.assisteddialing')
             }
             break
-        case ':dialer.blockreportspam':
+        case ':dialer2.blockreportspam':
             apply plugin: 'com.android.library'
             dependencies {
-                implementation project(':dialer.theme')
+                implementation project(':dialer2.theme')
             }
             break
-        case ':dialer.simulator.impl':
+        case ':dialer2.simulator.impl':
             apply plugin: 'com.android.library'
             dependencies {
-                implementation project(':dialer.theme')
+                implementation project(':dialer2.theme')
             }
             break
-        case ':dialer.historyitemactions':
+        case ':dialer2.historyitemactions':
             apply plugin: 'com.android.library'
             dependencies {
                 implementation project(':assets.quantum')
             }
             break
-        case ':dialer.searchfragment.directories': 
+        case ':dialer2.searchfragment.directories': 
             apply plugin: 'com.android.library'
             dependencies {
                 implementation project(':contacts.common')
             }
             break
-        case ':dialer.voicemail.listui':
+        case ':dialer2.voicemail.listui':
             apply plugin: 'com.android.library'
             dependencies {
                 implementation project(':assets.quantum')
-                implementation project(':dialer.widget')
+                implementation project(':dialer2.widget')
             }
             break
-        case ':dialer.main.impl.bottomnav':
+        case ':dialer2.main.impl.bottomnav':
             apply plugin: 'com.android.library'
             dependencies {
                 implementation project(':assets.quantum')
             }
             break
-        case ':dialer.glidephotomanager.impl':
+        case ':dialer2.glidephotomanager.impl':
             apply plugin: 'com.android.library'
             dependencies {
                 implementation project(':assets.quantum')
@@ -584,7 +584,7 @@ subprojects{ subproject ->
         case ':incallui.spam':
             apply plugin: 'com.android.library'
             dependencies {
-                implementation project(':dialer.theme')
+                implementation project(':dialer2.theme')
                 implementation project(':assets.quantum')
             }
             break
@@ -594,39 +594,39 @@ subprojects{ subproject ->
                 implementation project(':assets.product')
             }
             break
-        case ':dialer.main.impl.toolbar':
+        case ':dialer2.main.impl.toolbar':
             apply plugin: 'com.android.library'
             dependencies {
                 implementation 'com.android.support:appcompat-v7:28.0.0'
             }
             break
-        case ':dialer.main.impl':
+        case ':dialer2.main.impl':
             apply plugin: 'com.android.library'
             dependencies {
-                implementation project(':dialer.app')
-                implementation project(':dialer.main.impl.toolbar')
-                implementation project(':dialer.main.impl.bottomnav')
+                implementation project(':dialer2.app')
+                implementation project(':dialer2.main.impl.toolbar')
+                implementation project(':dialer2.main.impl.bottomnav')
             }
             break
-        case ':dialer.location':
+        case ':dialer2.location':
             apply plugin: 'com.android.library'
             afterEvaluate{
                 generateReleaseBuildConfig.enabled = false
             }
             break
-        case ':dialer.callrecord':
+        case ':dialer2.callrecord':
             apply plugin: 'com.android.library'
             afterEvaluate{
                 generateReleaseBuildConfig.enabled = false
             }
             break
-        case ':dialer.callstats':
+        case ':dialer2.callstats':
             apply plugin: 'com.android.library'
             afterEvaluate{
                 generateReleaseBuildConfig.enabled = false
             }
             break
-        case ':dialer.app.manifests.activities':
+        case ':dialer2.app.manifests.activities':
             apply plugin: 'com.android.library'
             afterEvaluate{
                 generateReleaseBuildConfig.enabled = false
@@ -647,7 +647,7 @@ subprojects{ subproject ->
 
         defaultConfig {
             minSdkVersion 28
-            targetSdkVersion 28
+            targetSdkVersion 27
             versionCode 1
             versionName "1.0"
             //multiDexEnabled false
