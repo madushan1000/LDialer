@@ -4,3 +4,6 @@
 [submodule "libbackup"]
 	path = libbackup
 	url = https://android.googlesource.com/platform/external/libbackup
+[submodule "Dialer2"]
+	path = Dialer2
+	url = https://github.com/madushan1000/Dialer2
