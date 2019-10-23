@@ -1,0 +1,9 @@
+[submodule "frameworks_ex"]
+	path = frameworks_ex
+	url = https://android.googlesource.com/platform/frameworks/ex
+[submodule "libbackup"]
+	path = libbackup
+	url = https://android.googlesource.com/platform/external/libbackup
+[submodule "Lineage_Dialer"]
+	path = Lineage_Dialer
+	url = https://github.com/LineageOS/android_packages_apps_Dialer
