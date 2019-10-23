@@ -7,3 +7,6 @@
 [submodule "Lineage_Dialer"]
 	path = Lineage_Dialer
 	url = https://github.com/LineageOS/android_packages_apps_Dialer
+[submodule "Dialer2"]
+	path = Dialer2
+	url = https://github.com/LineageOS/android_packages_apps_Dialer
