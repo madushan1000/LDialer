@@ -24,7 +24,7 @@ allprojects {
 }
 
 gradle.ext.blacklist = [
-  'diale2/binary/google',
+  'dialer2/binary/google',
   'dialer2/constants/googledialer',
   'incallui/maps/impl',
   'incallui/calllocation/impl',
