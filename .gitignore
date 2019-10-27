@@ -1,0 +1,6 @@
+.gradle/
+.idea/
+Lineage_Dialer/
+build/
+junk/
+local.properties
