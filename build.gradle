@@ -24,8 +24,8 @@ allprojects {
 }
 
 gradle.ext.blacklist = [
-  'dialer/binary/google',
-  'dialer/constants/googledialer',
+  'diale2/binary/google',
+  'dialer2/constants/googledialer',
   'incallui/maps/impl',
   'incallui/calllocation/impl',
   'contacts/common/format/testing',
@@ -33,20 +33,20 @@ gradle.ext.blacklist = [
 
 gradle.ext.reslist = [
   'contacts/common',
-  'dialer/calllog/',
-  'dialer/app',
-  'dialer/blocking',
-  'dialer/lookup',
+  'dialer2/calllog/',
+  'dialer2/app',
+  'dialer2/blocking',
+  'dialer2/lookup',
   'voicemail/impl/configui',
   'incallui/video/impl',
   'incallui/maps/impl',
-  'dialer/calldetails',
-  'dialer/voicemail/listui/error',
+  'dialer2/calldetails',
+  'dialer2/voicemail/listui/error',
   'incallui/disconnectdialog'
 ]
 
 subprojects{ subproject ->
-    if (subproject.path == ':Lineage_Dialer') {
+    if (subproject.path == ':Dialer2') {
 
       apply plugin:  'com.android.application'
       apply plugin: 'com.google.protobuf'
